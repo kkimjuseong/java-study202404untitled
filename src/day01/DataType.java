@@ -36,5 +36,17 @@ public class DataType {
         int x = 200;
         System.out.println(x + a);
         System.out.println(b * x);
+
+
+        // 문자형 char : 2byte
+        char text = 44032;
+        System.out.println("text = " + text);
+
+        // 문자열 : 문자배열
+        char [] hello = {'안', '녕', '하', '세', '요'};
+        System.out.println("hello = " + new String(hello));
+
+        String hello2 = "안녕하세요";
+        System.out.println("hello2 = " + hello2);
     }
 }
