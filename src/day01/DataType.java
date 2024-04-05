@@ -50,3 +50,5 @@ public class DataType {
         System.out.println("hello2 = " + hello2);
     }
 }
+
+// 이거야
