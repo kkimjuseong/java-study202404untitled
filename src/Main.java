@@ -2,6 +2,9 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        System.out.printf("Hello and welcome?????");
         System.out.println(10 + 5);
         System.out.println("안녕?");
 
@@ -12,7 +15,7 @@ public class Main {
 
         System.out.println(month + "월 " + day + "일은 " + anni + "입니다.");
         System.out.printf("%d월 %d일은 %s입니다.\n", month, day ,anni);
-//        System.out.printf("%d월 %d일은 %s입니다.", month, day ,anni);
+//        System.out.printf("%d월 %d일은 %s입니다.", month, day ,anai
 
     }
 }
