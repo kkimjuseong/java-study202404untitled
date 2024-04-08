@@ -42,5 +42,27 @@ public class TypeCasting {
         float f1 = 3.14F;
         double f2 = 5.5;
         double v1 = f1 - f2;
+
+        int s = 10;
+        double o = 5;
+        int r2 = (int) (s * o);
+        System.out.println("r2 = " + r2);
+
+        // int 이하의 사이즈를 가진 타입은 연산시 결과가 자동으로 int로 캐스팅됨
+        // byte short char
+//        char b1 = 'A';
+//        char b2 = 'C';
+
+        byte b1 = 100;
+        byte b2 = 50;
+
+        int r3 = b1 + b2;
+        System.out.println(b1 + b2);
+
+        // in형과 char 형이 결합을 하게 되면 int형으로 바뀌어야 하기때문에 char로 저장한 r4가 오류가남
+        char cc = 'A';
+        int plusNum = 3;
+        char r4 = (char) (cc + plusNum);
+        System.out.println("r4 = " + r4);
     }
 }
