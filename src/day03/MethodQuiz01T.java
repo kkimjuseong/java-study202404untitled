@@ -7,6 +7,10 @@ public class MethodQuiz01T {
     static String[] foods = {"떡볶이", "치킨", "파스타"};
     static String[] userNames = {"홍길동", "고길동"};
 
+    static boolean include(String searchTarget){
+        return indexOf(searchTarget) != -1;
+    }
+
     static void printFoods() {
         System.out.println(Arrays.toString(foods));
     }
