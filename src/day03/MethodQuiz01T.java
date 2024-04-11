@@ -4,10 +4,64 @@ import java.util.Arrays;
 
 public class MethodQuiz01T {
 
+
     static String[] foods = {"떡볶이", "치킨", "파스타"};
     static String[] userNames = {"홍길동", "고길동"};
 
-    static boolean include(String searchTarget){
+
+    public static void main(String[] args) {
+
+        printFoods();
+        push("라면");
+        push("김치찌개");
+        printFoods();
+
+        int index = indexOf("파스타");
+        System.out.println("index = " + index);
+
+        int index2 = indexOf("라면땅");
+        System.out.println("index2 = " + index2);
+
+//        pop();
+        remove("치킨");
+        printFoods();
+
+
+        boolean flag1 = include("파스타");
+        System.out.println("flag1 = " + flag1);
+
+        boolean flag2 = include("떡라면");
+        System.out.println("flag2 = " + flag2);
+
+        insert(3, "파인애플");
+
+        printFoods();
+
+        modify(2, "닭갈비");
+        printFoods();
+
+    } // end main
+
+    static void insert(int targetIndex, String newFoodName) {
+        if (isOutOfBounds(targetIndex)) return;
+        String[] temp = copy(1);
+        for (int i = temp.length; i > targetIndex; i--) {
+            temp[i] = temp[i - 1];
+        }
+        temp[targetIndex] = newFoodName;
+        foods = temp;
+    }
+
+    static void modify(int targetIndex, String newFoodName) {
+        if (isOutOfBounds(targetIndex)) return;
+        foods[targetIndex] = newFoodName;
+    }
+
+    static boolean isOutOfBounds(int targetIndex) {
+        return targetIndex < 0 || targetIndex > foods.length - 1;
+    }
+
+    static boolean include(String searchTarget) {
         return indexOf(searchTarget) != -1;
     }
 
@@ -64,46 +118,5 @@ public class MethodQuiz01T {
             foods[i] = foods[i + 1];
         }
         pop();
-    }
-
-
-
-    static void modify(int targetIndex, String newFoodName){
-        if(targetIndex < 0 || targetIndex > foods.length -1) return;
-        foods[targetIndex] = newFoodName;
-    }
-
-    public static void main(String[] args) {
-
-        printFoods();
-
-        push("라면");
-        push("김치찌개");
-        printFoods();
-
-        int index = indexOf("파스타");
-        System.out.println("index = " + index);
-
-        int index2 = indexOf("라면땅");
-        System.out.println("index2 = " + index2);
-
-        pop();
-        printFoods();
-
-        remove("치킨");
-        printFoods();
-
-        boolean flag1 = include("파스타");
-        System.out.println("flag1 = " + flag1);
-
-        boolean flag2 = include("떡라면");
-        System.out.println("flag2 = " + flag2);
-//
-//        insert(3, "파인애플");
-//        printFoods();
-//
-        modify(2, "닭갈비");
-        printFoods();
-//
     }
 }
