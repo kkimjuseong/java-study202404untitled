@@ -12,7 +12,12 @@ public class MethodQuiz01T {
     }
 
     static void push(String food){
-
+        String[] newfood = new String[foods.length + 1];
+        for (int i = 0; i < foods.length; i++) {
+            newfood[i] = foods[i];
+        }
+        newfood[foods.length] = food;
+        foods = newfood;
     }
 
 
