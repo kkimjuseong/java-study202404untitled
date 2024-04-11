@@ -33,7 +33,15 @@ public class MethodQuiz01T {
         foods = newfood;
     }
 
-
+    //foods 배열에서 특정 데이터의 인덱스를 반환
+    static int indexOf(String searchFood){
+        for (int i = 0; i < foods.length; i++) {
+            if(searchFood.equals(foods[i])){
+                return i;
+            }
+        }
+        return -1;
+    }
 
 
     public static void main(String[] args) {
@@ -43,9 +51,9 @@ public class MethodQuiz01T {
         push("라면");
         push("김치찌개");
         printFoods();
-//
-//        int index = indexOf("파스타");
-//        System.out.println("index = " + index);
+
+        int index = indexOf("파스타");
+        System.out.println("index = " + index);
 //
 //        int index2 = indexOf("라면땅");
 //        System.out.println("index2 = " + index2);
