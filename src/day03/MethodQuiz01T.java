@@ -11,9 +11,14 @@ public class MethodQuiz01T {
         System.out.println(Arrays.toString(foods));
     }
 
-    // 사이즈를 조절하고 기존 데이터를 복사하는 함수 리팩토링
+    // 사이즈를 조절해서 새 배열을 만드는 함수 리팩토링
+    static String[] makeNewArray(int size){
+        return new String[foods.length + size];
+    }
+
+    // 기존 데이터를 복사하는 함수 리팩토링
     static String[] copy(int size){
-        String[] newfood = new String[foods.length + size];
+        String[] newfood = makeNewArray(size);
         for (int i = 0; i < foods.length; i++) {
             newfood[i] = foods[i];
         }
@@ -27,6 +32,7 @@ public class MethodQuiz01T {
         newfood[foods.length] = food;
         foods = newfood;
     }
+
 
 
 
