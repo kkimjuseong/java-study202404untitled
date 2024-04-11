@@ -11,11 +11,19 @@ public class MethodQuiz01T {
         System.out.println(Arrays.toString(foods));
     }
 
-    static void push(String food){
-        String[] newfood = new String[foods.length + 1];
+    // 사이즈를 조절하고 기존 데이터를 복사하는 함수 리팩토링
+    static String[] copy(int size){
+        String[] newfood = new String[foods.length + size];
         for (int i = 0; i < foods.length; i++) {
             newfood[i] = foods[i];
         }
+        return newfood;
+    }
+
+    static void push(String food){
+
+        String[] newfood = copy(1);
+
         newfood[foods.length] = food;
         foods = newfood;
     }
