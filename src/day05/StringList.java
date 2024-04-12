@@ -102,7 +102,14 @@ public class StringList {
         sArr = new String[0];
     }
 
-
+    // 배열 데이터가 한개라도 있는지 확인
+    public boolean isEmpty() {
+        if (sArr.length == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 //    void hobbies(String... nHobbies) {
 //        for (String hobby : nHobbies) {
