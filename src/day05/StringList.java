@@ -13,6 +13,14 @@ public class StringList {
         sArr = new String[0];
     }
 
+    StringList(String... initData){
+//        sArr = initData;
+        sArr = new String[initData.length];
+        for (int i = 0; i < initData.length; i++) {
+            sArr[i] = initData[i];
+        }
+    }
+
     // 배열 내부를 출력하는 메서드
     public String toString() {
         return Arrays.toString(sArr);
@@ -106,12 +114,6 @@ public class StringList {
     public boolean isEmpty() {
         return sArr.length == 0;
     }
-
-//    String hobbies;
-//
-//    void hobbies(String... nHobbies) {
-//        hobbies = Arrays.toString(nHobbies);
-//    }
 
 }
 
