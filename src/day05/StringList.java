@@ -9,22 +9,22 @@ public class StringList {
     String[] sArr;
 
     // 생성자를 통해 스트링 배열을 초기화 함
-    StringList(){
+    StringList() {
         sArr = new String[0];
     }
 
     // 배열 내부를 출력하는 메서드
-    public String toString(){
+    public String toString() {
         return Arrays.toString(sArr);
     }
 
     // 배열 내부 요소의 수를 알려주는 메서드
-    int size(){
+    int size() {
         return sArr.length;
     }
 
     // 배열의 맨 끝에 추가하는 메서드
-    void push(String newData){
+    void push(String newData) {
         String[] temp = new String[sArr.length + 1];
         for (int i = 0; i < sArr.length; i++) {
             temp[i] = sArr[i];
@@ -85,12 +85,26 @@ public class StringList {
             temp[i] = sArr[i];
         }
         for (int i = temp.length - 1; i > index; i--) {
-            temp[i] = temp[i-1];
+            temp[i] = temp[i - 1];
         }
         temp[index] = newData;
         sArr = temp;
     }
 
+    // 배열 데이터 수정
+    public void set(int index, String newData) {
+        if (index < 0 || index > sArr.length) return;
+        sArr[index] = newData;
+    }
+
+
+
+//    void hobbies(String... nHobbies) {
+//        for (String hobby : nHobbies) {
+//            hobbies.push(hobby);
+//        }
+//    }
 
 }
+
 
