@@ -104,17 +104,13 @@ public class StringList {
 
     // 배열 데이터가 한개라도 있는지 확인
     public boolean isEmpty() {
-        if (sArr.length == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return sArr.length == 0;
     }
 
+//    String hobbies;
+//
 //    void hobbies(String... nHobbies) {
-//        for (String hobby : nHobbies) {
-//            hobbies.push(hobby);
-//        }
+//        hobbies = Arrays.toString(nHobbies);
 //    }
 
 }
