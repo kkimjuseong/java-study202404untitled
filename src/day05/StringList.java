@@ -97,6 +97,11 @@ public class StringList {
         sArr[index] = newData;
     }
 
+    // 배열 데이터 전체 삭제
+    public void clear() {
+        sArr = new String[0];
+    }
+
 
 
 //    void hobbies(String... nHobbies) {
