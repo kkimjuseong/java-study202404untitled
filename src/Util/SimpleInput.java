@@ -13,4 +13,10 @@ public class SimpleInput {
         return sc.nextLine();
     }
 
+
+    // 엔터를 누르기 전까지 멈춰있는 기능
+    public void stopInput(){
+        System.out.println("\n====== 엔터를 누르면 계속.. ======");
+        sc.nextLine();
+    }
 }
