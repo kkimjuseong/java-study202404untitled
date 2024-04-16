@@ -6,13 +6,16 @@ public class MemberRepository {
     // 필드
     static Member[] members;
     static Member[] restoreList; // 삭제된 회원들이 모일 배열
-
+    MemberList ml;
     // 생성자
     MemberRepository() {
         this.members = new Member[3];
         members[0] = new Member("abc@def.com", "1234", "콩순이", "여성", 50);
         members[1] = new Member("ghi@def.com", "5432", "팥돌이", "남성", 40);
         members[2] = new Member("xyz@def.com", "7890", "팥죽이", "여성", 30);
+
+        restoreList = new Member[0];
+        ml = new MemberList();
     }
 
     // 매서드
@@ -123,7 +126,6 @@ public class MemberRepository {
 
     // 배열에서 회원정보 삭제
     public void removeMember(String inputEmail) {
-
         int index = findIndex(inputEmail);
 
         if (index == -1) return;
@@ -138,7 +140,6 @@ public class MemberRepository {
         }
         members = temp;
     }
-
 }
 
 

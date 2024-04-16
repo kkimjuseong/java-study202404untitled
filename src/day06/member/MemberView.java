@@ -69,7 +69,8 @@ public class MemberView {
         if (isMemberRegistered) {
             System.out.println("* 5. 회원 정보 삭제하기");
         }
-        System.out.println("* 6. 프로그램 종료");
+        System.out.println("* 6. 회원 정보 복구하기");
+        System.out.println("* 7. 프로그램 종료");
         System.out.println("===================================");
 
         String menuNember = si.input(" - 메뉴 번호: ");
@@ -201,5 +202,8 @@ public class MemberView {
 
     }
 
+    public void restoration() {
+
+    }
 }
 
