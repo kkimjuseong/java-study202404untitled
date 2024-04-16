@@ -27,6 +27,7 @@ public class MemberController {
                     mv.showMembers();
                     break;
                 case "4":
+                    mv.modify();
                     break;
                 case "5":
                     break;

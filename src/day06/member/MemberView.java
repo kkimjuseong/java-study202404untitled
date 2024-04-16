@@ -90,7 +90,7 @@ public class MemberView {
     // 개별회원 정보 조회하기.
     void showIndividualMember() {
         System.out.printf("조회를 시작합니다!\n");
-        String targetEmail  = si.input("# 이메일: ");
+        String targetEmail = si.input("# 이메일: ");
         Member foundMember = mr.findMemberByEmail(targetEmail);
 
         // 회원 정보가 발견되었는지 확인합니다.
@@ -103,5 +103,56 @@ public class MemberView {
             System.out.println("해당 이메일의 회원이 없습니다.");
         }
     }
+
+    void modify() {
+        String choice = null;
+        String targetEmail = si.input("수정할 대상의 이메일을 입력하세요,");
+        // 입력된 이메일을 사용하여 회원을 찾습니다.
+        Member foundMember = mr.findMemberByEmail(targetEmail);
+
+        if (foundMember != null) {
+            // 수정할 필드 선택
+            System.out.println("수정할 항목을 선택하세요:");
+            System.out.println("1. 이름 수정");
+            System.out.println("2. 비밀번호 수정");
+            System.out.println("3. 나이 수정");
+            System.out.println("4. 성별 수정");
+
+            choice = si.input("선택: ");
+
+
+            switch (choice) {
+                case "1":
+                    // 이름 수정
+                    String newName = si.input("새 이름을 입력하세요: ");
+                    foundMember.memberName = newName;
+                    break;
+                case "2":
+                    // 비밀번호 수정
+                    String newPassword = si.input("새 비밀번호를 입력하세요: ");
+                    foundMember.password = newPassword;
+                    break;
+                case "3":
+                    // 나이 수정
+                    int newAge = Integer.parseInt(si.input("새 나이를 입력하세요: "));
+                    foundMember.age = newAge;
+                    break;
+                case "4":
+                    // 성별 수정
+                    String newGender = si.input("새 성별을 입력하세요: ");
+                    foundMember.gender = newGender;
+                    break;
+                default:
+                    System.out.println("잘못된 선택입니다.");
+                    return;
+            }
+            System.out.println("수정이 완료 되었습니다.");
+        } else {
+            System.out.println("해당 회원의 이메일이 없습니다.");
+        }
+    }
+
+
+
 }
 

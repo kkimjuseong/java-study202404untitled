@@ -81,6 +81,8 @@ public class MemberRepository {
         }
         return null; // 해당 이메일의 회원이 없을 경우 null 반환
     }
+
+
 }
 
 
