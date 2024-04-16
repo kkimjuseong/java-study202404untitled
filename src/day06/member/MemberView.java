@@ -152,6 +152,31 @@ public class MemberView {
         }
     }
 
+    void deleteMember() {
+        // 삭제할 회원의 이메일을 입력받습니다.
+        String targetEmail = si.input("삭제할 회원의 이메일을 입력하세요: ");
+
+        // 입력된 이메일을 사용하여 회원을 찾습니다.
+        Member foundMember = mr.findMemberByEmail(targetEmail);
+
+        // 회원 정보가 발견되었는지 확인합니다.
+        if (foundMember != null) {
+            // 사용자에게 회원 삭제 여부를 확인합니다.
+            String confirmation = si.input("해당 회원을 정말로 삭제하시겠습니까? [y/n]: ");
+
+            // 사용자가 삭제를 확실히 결정한 경우
+            if (confirmation.equalsIgnoreCase("y")) {
+                // 회원을 배열에서 삭제하는 로직을 실행합니다.
+                mr.deleteMemberByEmail(targetEmail);
+                System.out.println("회원 정보가 성공적으로 삭제되었습니다.");
+            } else {
+                System.out.println("회원 삭제를 취소합니다.");
+            }
+        } else {
+            // 해당 이메일의 회원이 없을 경우 메시지를 출력합니다.
+            System.out.println("해당 이메일의 회원이 없습니다.");
+        }
+    }
 
 
 }

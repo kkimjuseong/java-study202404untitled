@@ -83,6 +83,31 @@ public class MemberRepository {
     }
 
 
+    public void deleteMemberByEmail(String targetEmail) {
+        // 삭제할 회원의 인덱스를 찾습니다.
+        int indexToRemove = -1;
+        for (int i = 0; i < members.length; i++) {
+            if (members[i].email.equals(targetEmail)) {
+                indexToRemove = i;
+                break;
+            }
+        }
+
+        // 삭제할 회원을 찾았으면 배열에서 제거합니다.
+        if (indexToRemove != -1) {
+            // 새 배열을 생성하여 기존 배열의 요소를 복사합니다.
+            Member[] newMembers = new Member[members.length - 1];
+            int newIndex = 0;
+            for (int i = 0; i < members.length; i++) {
+                if (i != indexToRemove) {
+                    newMembers[newIndex++] = members[i];
+                }
+            }
+            // members 배열을 새 배열로 대체합니다.
+            members = newMembers;
+        }
+    }
+
 }
 
 
