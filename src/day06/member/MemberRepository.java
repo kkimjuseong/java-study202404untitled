@@ -5,10 +5,14 @@ public class MemberRepository {
 
     // 필드
     static Member[] members;
+    static Member[] restoreList; // 삭제된 회원들이 모일 배열
 
     // 생성자
     MemberRepository() {
-        this.members = new Member[0];
+        this.members = new Member[3];
+        members[0] = new Member("abc@def.com", "1234", "콩순이", "여성", 50);
+        members[1] = new Member("ghi@def.com", "5432", "팥돌이", "남성", 40);
+        members[2] = new Member("xyz@def.com", "7890", "팥죽이", "여성", 30);
     }
 
     // 매서드
@@ -83,29 +87,56 @@ public class MemberRepository {
     }
 
 
-    public void deleteMemberByEmail(String targetEmail) {
-        // 삭제할 회원의 인덱스를 찾습니다.
-        int indexToRemove = -1;
+//    public void deleteMemberByEmail(String targetEmail) {
+//        // 삭제할 회원의 인덱스를 찾습니다.
+//        int indexToRemove = -1;
+//        for (int i = 0; i < members.length; i++) {
+//            if (members[i].email.equals(targetEmail)) {
+//                indexToRemove = i;
+//                break;
+//            }
+//        }
+//
+//        // 삭제할 회원을 찾았으면 배열에서 제거합니다.
+//        if (indexToRemove != -1) {
+//            // 새 배열을 생성하여 기존 배열의 요소를 복사합니다.
+//            Member[] newMembers = new Member[members.length - 1];
+//            int newIndex = 0;
+//            for (int i = 0; i < members.length; i++) {
+//                if (i != indexToRemove) {
+//                    newMembers[newIndex++] = members[i];
+//                }
+//            }
+//            // members 배열을 새 배열로 대체합니다.
+//            members = newMembers;
+//        }
+//    }
+
+    int findIndex(String email) {
         for (int i = 0; i < members.length; i++) {
-            if (members[i].email.equals(targetEmail)) {
-                indexToRemove = i;
-                break;
+            if (email.equals(members[i].email)) {
+                return i;
             }
+        }
+        return -1;
+    }
+
+    // 배열에서 회원정보 삭제
+    public void removeMember(String inputEmail) {
+
+        int index = findIndex(inputEmail);
+
+        if (index == -1) return;
+
+        for (int i = index; i < members.length - 1; i++) {
+            members[i] = members[i + 1];
         }
 
-        // 삭제할 회원을 찾았으면 배열에서 제거합니다.
-        if (indexToRemove != -1) {
-            // 새 배열을 생성하여 기존 배열의 요소를 복사합니다.
-            Member[] newMembers = new Member[members.length - 1];
-            int newIndex = 0;
-            for (int i = 0; i < members.length; i++) {
-                if (i != indexToRemove) {
-                    newMembers[newIndex++] = members[i];
-                }
-            }
-            // members 배열을 새 배열로 대체합니다.
-            members = newMembers;
+        Member[] temp = new Member[members.length - 1];
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = members[i];
         }
+        members = temp;
     }
 
 }
