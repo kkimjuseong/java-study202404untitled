@@ -17,18 +17,23 @@ public class MemberController {
 
             switch (menuNum) {
                 case "1":
+                    System.out.printf("# 회원정보 등록을 시작합니다!\n");
                     mv.inputNewMember();
                     break;
                 case "2":
+                    mv.showIndividualMember();
                     break;
                 case "3":
-                    mv.showMember();
+                    mv.showMembers();
                     break;
                 case "4":
                     break;
                 case "5":
+                    break;
+                case "6":
                     boolean flag = mv.exitProgram();
                     if (flag) return;
+
 
             }
         }

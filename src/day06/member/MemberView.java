@@ -8,11 +8,13 @@ public class MemberView {
     // 객체의 협력
     MemberRepository mr;
     SimpleInput si;
+    boolean isMemberRegistered; // 회원 등록 여부를 추적하는 변수
 
     // 생성자
-    MemberView(){
+    MemberView() {
         this.mr = new MemberRepository();
         this.si = new SimpleInput();
+        this.isMemberRegistered = false;
     }
 
     void showMembers() {
@@ -28,10 +30,10 @@ public class MemberView {
         String email = null;    // 변수의 사용범위 while문 안에서 email을 정의하면 while문에서만 사용 가능하기때문에 밖에서 정의
         while (true) {
             email = si.input("- 이메일: ");
-            if(!mr.inDuplicateEmail(email)){
+            if (!mr.inDuplicateEmail(email)) {
                 break;
             }
-                System.out.println("중복된 이메일 입니다.");
+            System.out.println("중복된 이메일 입니다.");
         }
 
         String name = si.input("- 이름: ");
@@ -45,16 +47,28 @@ public class MemberView {
 
         // 위임 - 관심사의 분리
         mr.addNewMember(newMember);
+
+        // 회원 등록 여부를 true로 설정
+        isMemberRegistered = true;
+
+        System.out.println("회원 가입 성공!!");
     }
 
+    // 회원이 등록 되어있는지 확인
+
+
     // 사용자에게 보여줄 전체 메뉴 화면 출력
-    String showProgramMenu(){
+    String showProgramMenu() {
         System.out.println("\n##### 회원 관리 시스템 #####");
         System.out.println("* 1. 회원 정보 등록하기");
+
         System.out.println("* 2. 개별회원 정보 조회하기");
         System.out.println("* 3. 전체회원 정보 조회하기");
         System.out.println("* 4. 회원 정보 수정하기");
-        System.out.println("* 5. 프로그램 종료");
+        if (isMemberRegistered) {
+            System.out.println("* 5. 회원 정보 삭제하기");
+        }
+        System.out.println("* 6. 프로그램 종료");
         System.out.println("===================================");
 
         String menuNember = si.input(" - 메뉴 번호: ");
@@ -67,11 +81,27 @@ public class MemberView {
         if (exit.equals("y")) {
             System.out.println("프로그램을 종료합니다!");
             return true;
-        }
-        else {
+        } else {
             System.out.println("프로그램 종료를 취소합니다.");
             return false;
         }
     }
 
+    // 개별회원 정보 조회하기.
+    void showIndividualMember() {
+        System.out.printf("조회를 시작합니다!\n");
+        String targetEmail  = si.input("# 이메일: ");
+        Member foundMember = mr.findMemberByEmail(targetEmail);
+
+        // 회원 정보가 발견되었는지 확인합니다.
+        if (foundMember != null) {
+            // 발견된 회원 정보를 출력합니다.
+            System.out.println("=========== 조회결과 ===========");
+            System.out.println(foundMember);
+        } else {
+            // 해당 이메일의 회원이 없을 경우 메시지를 출력합니다.
+            System.out.println("해당 이메일의 회원이 없습니다.");
+        }
+    }
 }
+

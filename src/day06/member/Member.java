@@ -31,7 +31,7 @@ public class Member {
 
     // toString : 객체의 정보를 출력할 수 있음.
     public String toString(){
-        return String.format("# 이름: %s, 이메일: %s, 나이: %d세, 성별: %s, 가입일: %s"
+        return String.format("# 이름: %s,\n# 이메일: %s,\n# 나이: %d세,\n# 성별: %s,\n#가입일: %s"
                 , this.memberName, this.email, this.age, this.gender, this.regDate);
 
     }

@@ -41,6 +41,6 @@ public class Test {
         Member newMember = new Member("ddd@fff.com", "1234", "철떡이", "남성", 43);
         mr.addNewMember(newMember);
 
-        mv.showMember();
+        mv.showMembers();
     }
 }
