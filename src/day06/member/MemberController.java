@@ -21,7 +21,6 @@ public class MemberController {
 
             switch (menuNum) {
                 case "1":
-                    System.out.printf("# 회원정보 등록을 시작합니다!\n");
                     mv.inputNewMember();
                     break;
                 case "2":

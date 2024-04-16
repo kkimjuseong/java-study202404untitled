@@ -27,6 +27,7 @@ public class MemberView {
 
     // 회원정보 생성을 위해 입력을 처리
     void inputNewMember() {
+        System.out.printf("# 회원정보 등록을 시작합니다!\n");
         String email = null;    // 변수의 사용범위 while문 안에서 email을 정의하면 while문에서만 사용 가능하기때문에 밖에서 정의
         while (true) {
             email = si.input("- 이메일: ");
@@ -105,7 +106,7 @@ public class MemberView {
     }
 
     void modify() {
-        String choice = null;
+        String choice = null;       // 코드의 사용범위로 if 문의 지역변수가 아닌 함수 전역변수로 설정
         String targetEmail = si.input("수정할 대상의 이메일을 입력하세요,");
         // 입력된 이메일을 사용하여 회원을 찾습니다.
         Member foundMember = mr.findMemberByEmail(targetEmail);
