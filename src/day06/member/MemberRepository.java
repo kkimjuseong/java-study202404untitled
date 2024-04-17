@@ -132,32 +132,35 @@ public class MemberRepository {
 //        }
 //    }
 
-    int findIndex(String email) {
-        for (int i = 0; i < members.length; i++) {
-            if (email.equals(members[i].email)) {
-                return i;
-            }
-        }
-        return -1;
+//    int findIndex(String email) {
+//        for (int i = 0; i < members.length; i++) {
+//            if (email.equals(members[i].email)) {
+//                return i;
+//            }
+//        }
+//        return -1;
 
-    }
+//    }
 
     // 배열에서 회원정보 삭제
     public void removeMember(String inputEmail) {
-        int index = findIndex(inputEmail);
+//        int index = findIndex(inputEmail);
+//
+        int index = members.findIndex(inputEmail);
 
         if (index == -1) return;
-
-        for (int i = index; i < members.length - 1; i++) {
-            members[i] = members[i + 1];
-        }
-
-        Member[] temp = new Member[members.length - 1];
-        for (int i = 0; i < temp.length; i++) {
-            temp[i] = members[i];
-        }
-        members = temp;
-
+//        if (index == -1) return;
+//
+//        for (int i = index; i < members.length - 1; i++) {
+//            members[i] = members[i + 1];
+//        }
+//
+//        Member[] temp = new Member[members.length - 1];
+//        for (int i = 0; i < temp.length; i++) {
+//            temp[i] = members[i];
+//        }
+//        members = temp;
+        members.remove(index);
     }
 
 
