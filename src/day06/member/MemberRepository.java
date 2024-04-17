@@ -173,6 +173,17 @@ public class MemberRepository {
     }
 
 
+    public Member findRestoreMember(String inputEmail) {
+
+        return restoreList.get(inputEmail);
+    }
+
+    public void restore(String inputEmail) {
+
+        int index = restoreList.findIndex(inputEmail);
+        Member removed = restoreList.remove(index);
+        members.push(removed);
+    }
 }
 
 
