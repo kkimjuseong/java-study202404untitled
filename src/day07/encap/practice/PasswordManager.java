@@ -11,12 +11,20 @@ public class PasswordManager {
 
     private String password;
 
-    public PasswordManager(String password) {
-        this.password = password;
+    public PasswordManager(String oldPassword) {
+        this.password = oldPassword;
     }
 
-    public boolean changePassword(String oldPassword123, String newPassword123) {
-        return password.equals(oldPassword123);
+    public boolean changePassword(String oldPassword, String newPassword) {
+        // 현재 비밀번호가 oldPassword와 일치하는지 확인
+        if (password.equals(oldPassword)) {
+            // 일치하면 비밀번호를 newPassword로 변경
+            password = newPassword;
+            return true;
+        } else {
+            // 일치하지 않으면 false 반환
+            return false;
+        }
 
     }
 }
