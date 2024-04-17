@@ -23,11 +23,18 @@ public class BankAccount {
         return balance;
     }
 
-    public void deposit(int i) {
-        balance += i;
+    public void deposit(int amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
     }
-    public void withdraw(int i) {
-        balance -= i;
+    public boolean withdraw(int amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
