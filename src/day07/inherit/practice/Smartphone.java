@@ -29,6 +29,6 @@ public class Smartphone extends ElectronicProduct {
         // 상위 클래스의 displayInfo 메소드 호출
         super.displayInfo();
         // 저장 용량 정보 추가 출력
-        System.out.println("저장 용량: " + storageCapacity + "GB");
+        System.out.println("저장 용량: " + this.storageCapacity + "GB");
     }
 }

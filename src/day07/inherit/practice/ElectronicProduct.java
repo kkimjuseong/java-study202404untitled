@@ -27,6 +27,6 @@ public class ElectronicProduct {
 
     // 제품 정보를 출력하는 메소드
     public void displayInfo() {
-        System.out.println(productName + ", 가격: " + price + "원, 제조사: " + manufacturer);
+        System.out.println(this.productName + ", 가격: " + this.price + "원, 제조사: " + this.manufacturer);
     }
 }
