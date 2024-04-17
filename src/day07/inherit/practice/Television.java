@@ -27,7 +27,7 @@ public class Television extends ElectronicProduct {
         // 상위 클래스의 displayInfo 메소드 호출
         super.displayInfo();
         // 화면 크기 정보 추가 출력
-        System.out.println("화면 크기: " + this.screenSize + "인치");
+        System.out.println("Screen Size: " + this.screenSize + "inches");
     }
 
 }
