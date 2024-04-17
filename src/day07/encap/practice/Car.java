@@ -1,5 +1,7 @@
 package day07.encap.practice;
 
+import java.time.LocalDate;
+
 /**
  * 자동차 클래스
  *
@@ -25,6 +27,10 @@ public class Car {
         this.model = model;
     }
     public void setYear(int year) {
+        if(year < 1900 || year > LocalDate.now().getYear()){
+            System.out.println("유효하지 않은 연도입니다.");
+            return;
+        }
         this.year = year;
     }
 

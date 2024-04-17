@@ -46,6 +46,7 @@ public class Product {
             stock -= amount;
             return true;
         } else {
+            System.out.println("요청한 수량이 재고보다 많거나 잘못된 수량입니다.");
             return false;
         }
 

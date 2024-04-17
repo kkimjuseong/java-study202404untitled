@@ -17,14 +17,13 @@ public class PasswordManager {
 
     public boolean changePassword(String oldPassword, String newPassword) {
         // 현재 비밀번호가 oldPassword와 일치하는지 확인
-        if (password.equals(oldPassword)) {
-            // 일치하면 비밀번호를 newPassword로 변경
-            password = newPassword;
+        if (oldPassword.equals(this.password)) {
+            this.password = newPassword;
             return true;
         } else {
-            // 일치하지 않으면 false 반환
             return false;
         }
+
 
     }
 }

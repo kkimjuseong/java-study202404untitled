@@ -13,28 +13,31 @@ public class BankAccount {
     private String accountHolder;
     private long balance;
 
-    public BankAccount(String accountNumber, String accountHolder, long balance){
+    public BankAccount(String accountNumber, String accountHolder, long balance) {
         this.balance = balance;
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
     }
 
     public long getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public void deposit(int amount) {
-        if (amount > 0) {
-            balance += amount;
+        if (amount < 0) {
+            System.out.println("입금액은 음수일 수 없습니다.");
+            return;
         }
+        this.balance += amount;
     }
-    public boolean withdraw(int amount) {
-        if (amount > 0 && balance >= amount) {
-            balance -= amount;
-            return true;
-        } else {
-            return false;
+
+    public void withdraw(int amount) {
+        if (amount < 0 || amount > this.balance) {
+            System.out.println("잔액이 부족하거나 잘못된 출금액입니다.");
+            return;
         }
+        this.balance -= amount;
+
     }
 
 }
