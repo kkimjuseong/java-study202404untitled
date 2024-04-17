@@ -11,15 +11,15 @@ public class BankAccount {
 
     private String accountNumber;
     private String accountHolder;
-    private double balance;
+    private long balance;
 
-    public BankAccount(String accountNumber, String accountHolder, double balance){
+    public BankAccount(String accountNumber, String accountHolder, long balance){
         this.balance = balance;
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
     }
 
-    public double getBalance() {
+    public long getBalance() {
         return balance;
     }
 
