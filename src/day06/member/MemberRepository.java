@@ -13,7 +13,6 @@ public class MemberRepository {
     // const members = { [{} {} {}] }
     MemberList members;
     MemberList restoreList;
-    MemberList ml;
 
     // 생성자
     MemberRepository() {
@@ -146,13 +145,12 @@ public class MemberRepository {
 
     // 배열에서 회원정보 삭제
     public void removeMember(String inputEmail) {
+
 //        int index = findIndex(inputEmail);
-//
         int index = members.findIndex(inputEmail);
 
         if (index == -1) return;
-//        if (index == -1) return;
-//
+
 //        for (int i = index; i < members.length - 1; i++) {
 //            members[i] = members[i + 1];
 //        }
@@ -162,19 +160,16 @@ public class MemberRepository {
 //            temp[i] = members[i];
 //        }
 //        members = temp;
-        members.remove(index);
 
-    // members배열에서 삭제 후 삭제된 member를 리턴받음
-    Member removed = members.remove(index);
+        // members배열에서 삭제 후 삭제된 member를 리턴받음
+        Member removed = members.remove(index);
         restoreList.push(removed);
-
-        System.out.println(Arrays.toString(members.mArr));
-        System.out.println(Arrays.toString(restoreList.mArr));
+//
+//        System.out.println(Arrays.toString(members.mArr));
+//        System.out.println(Arrays.toString(restoreList.mArr));
     }
 
-
-    public Member findRestoreMember(String inputEmail) {
-
+    public Member findRestoreMemberByEmail(String inputEmail) {
         return restoreList.get(inputEmail);
     }
 

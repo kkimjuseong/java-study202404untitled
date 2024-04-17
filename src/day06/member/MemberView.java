@@ -8,13 +8,13 @@ public class MemberView {
     // 객체의 협력
     MemberRepository mr;
     SimpleInput si;
-    boolean isMemberRegistered; // 회원 등록 여부를 추적하는 변수
+//    boolean isMemberRegistered; // 회원 등록 여부를 추적하는 변수
 
     // 생성자
     MemberView() {
         this.mr = new MemberRepository();
         this.si = new SimpleInput();
-        this.isMemberRegistered = false;
+//        this.isMemberRegistered = false;
     }
 
     void showMembers() {
@@ -50,7 +50,7 @@ public class MemberView {
         mr.addNewMember(newMember);
 
         // 회원 등록 여부를 true로 설정
-        isMemberRegistered = true;
+//        isMemberRegistered = true;
 
         System.out.println("회원 가입 성공!!");
     }
@@ -66,9 +66,9 @@ public class MemberView {
         System.out.println("* 2. 개별회원 정보 조회하기");
         System.out.println("* 3. 전체회원 정보 조회하기");
         System.out.println("* 4. 회원 정보 수정하기");
-        if (isMemberRegistered) {
+//        if (isMemberRegistered) {
             System.out.println("* 5. 회원 정보 삭제하기");
-        }
+//        }
         System.out.println("* 6. 회원 정보 복구하기");
         System.out.println("* 7. 프로그램 종료");
         System.out.println("===================================");
@@ -202,24 +202,26 @@ public class MemberView {
 
     }
 
+    // 회원 복구에 관련한 입출력 처리
     public void restoreMember() {
         String inputEmail = si.input("# 복구하실 회원의 이메일을 입력하세요.\n>> ");
 
-        // 이메일이 일치하는 회원이 복구 리스트에 있는지 조회
-        Member foundMember = mr.findRestoreMember(inputEmail);
+        // 이메일이 일치하는 회원이 복구리스트에 있는지 조회
+        Member foundMember = mr.findRestoreMemberByEmail(inputEmail);
 
-        if (foundMember != null){
+        if (foundMember != null) {
             // 패스워드 검사
             String inputPw = si.input("# 비밀번호를 입력: ");
-            if (inputPw.equals(foundMember.password)){
+            if (inputPw.equals(foundMember.password)) {
                 mr.restore(inputEmail);
                 System.out.printf("# %s님의 회원정보가 복구되었습니다.\n", foundMember.memberName);
-            }else{
+            } else {
                 System.out.println("\n# 비밀번호가 일치하지 않습니다. 복구를 취소합니다.");
             }
-        }else{
-            System.out.println("# 해당 회원은 복구 대상이 아닙니다.");
+        } else {
+            System.out.println("\n# 해당 회원은 복구대상이 아닙니다.");
         }
+
     }
 
 }
