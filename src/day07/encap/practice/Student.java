@@ -18,14 +18,23 @@ public class Student {
 
     }
     public void setName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("이름은 null이거나 빈 문자열일 수 없습니다.");
+        }
         this.name = name;
     }
 
     public void setStudentId(String Id) {
+        if (studentId == null || studentId.isEmpty()) {
+            throw new IllegalArgumentException("학번은 null이거나 빈 문자열일 수 없습니다.");
+        }
         this.studentId = Id;
     }
 
     public void setDepartment(String department) {
+        if (department == null || department.isEmpty()) {
+            throw new IllegalArgumentException("학과는 null이거나 빈 문자열일 수 없습니다.");
+        }
         this.department = department;
     }
 
