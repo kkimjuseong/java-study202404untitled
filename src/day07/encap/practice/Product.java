@@ -41,8 +41,13 @@ public class Product {
     }
 
 
-    public void reduceStock(int i) {
-        this.stock -= i;
+    public boolean reduceStock(int amount) {
+        if (amount > 0 && amount <= stock) {
+            stock -= amount;
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }
