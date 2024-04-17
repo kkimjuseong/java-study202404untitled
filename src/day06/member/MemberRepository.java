@@ -65,12 +65,13 @@ public class MemberRepository {
      */
 
     boolean inDuplicateEmail(String targetEmail) {
-        for (Member m : members) {
-            if (targetEmail.equals(m.email)) {
-                return true;
-            }
-        }
-        return false;
+//        for (Member m : members) {
+//            if (targetEmail.equals(m.email)) {
+//                return true;
+//            }
+//        }
+//        return false;
+        return members.findIndex(targetEmail) != -1;
     }
 
 
@@ -96,12 +97,13 @@ public class MemberRepository {
      * @return - 해당 이메일의 회원 객체를 반환하고, 이메일에 해당하는 회원이 없을 경우 null 반환
      */
     Member findMemberByEmail(String targetEmail) {
-        for (Member m : members) {
-            if (m.email.equals(targetEmail)) {
-                return m;
-            }
-        }
-        return null; // 해당 이메일의 회원이 없을 경우 null 반환
+//        for (Member m : members) {
+//            if (m.email.equals(targetEmail)) {
+//                return m;
+//            }
+//        }
+//        return null; // 해당 이메일의 회원이 없을 경우 null 반환
+        return members.get(targetEmail);
     }
 
 
@@ -137,6 +139,7 @@ public class MemberRepository {
             }
         }
         return -1;
+
     }
 
     // 배열에서 회원정보 삭제
@@ -154,7 +157,10 @@ public class MemberRepository {
             temp[i] = members[i];
         }
         members = temp;
+
     }
+
+
 }
 
 
