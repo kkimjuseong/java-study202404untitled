@@ -36,7 +36,7 @@ public class MemberController {
                     mv.deleteMember();
                     break;
                 case "6":
-                    mv.restoration();
+                    mv.restoreMember();
                     break;
                 case "7":
                     boolean flag = mv.exitProgram();

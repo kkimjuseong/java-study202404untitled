@@ -1,5 +1,7 @@
 package day06.member;
 
+import java.util.Arrays;
+
 // 역학: 회원 배열을 관리하는 역할 - 회원 데이터 저장소
 public class MemberRepository {
 
@@ -161,6 +163,13 @@ public class MemberRepository {
 //        }
 //        members = temp;
         members.remove(index);
+
+    // members배열에서 삭제 후 삭제된 member를 리턴받음
+    Member removed = members.remove(index);
+        restoreList.push(removed);
+
+        System.out.println(Arrays.toString(members.mArr));
+        System.out.println(Arrays.toString(restoreList.mArr));
     }
 
 

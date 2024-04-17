@@ -18,8 +18,8 @@ public class MemberView {
     }
 
     void showMembers() {
-        System.out.printf("========= 현재 회원 목록 (총 %d명) ==========\n", MemberRepository.members.length);
-        for (Member m : MemberRepository.members) {
+        System.out.printf("========= 현재 회원 목록 (총 %d명) ==========\n", mr.members.size());
+        for (Member m : mr.members.getMembers()) {
             System.out.println(m);
         }
     }
@@ -202,7 +202,7 @@ public class MemberView {
 
     }
 
-    public void restoration() {
+    public void restoreMember() {
 
     }
 }
