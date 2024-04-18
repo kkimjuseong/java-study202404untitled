@@ -25,13 +25,13 @@ public class TeamMember {
     public void assignTask() {
         switch (role) {
             case LEADER:
-                System.out.println(name + " is assigned " + role.getDescription());
+                System.out.println(name + " is assigned to " + role.getDescription());
                 break;
             case TESTER:
-                System.out.println(name + " is assigned " + role.getDescription());
+                System.out.println(name + " is assigned to " + role.getDescription());
                 break;
             case DESIGNER:
-                System.out.println(name + " is assigned " + role.getDescription());
+                System.out.println(name + " is assigned to " + role.getDescription());
                 break;
             case DEVELOPER:
                 System.out.println(name + " is assigned to " + role.getDescription());
