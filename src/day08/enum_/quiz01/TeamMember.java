@@ -22,20 +22,25 @@ public class TeamMember {
         this.role = role;
     }
 
+//    public void assignTask() {
+//        switch (role) {
+//            case LEADER:
+//                System.out.println(name + " is assigned to " + role.getDescription());
+//                break;
+//            case TESTER:
+//                System.out.println(name + " is assigned to " + role.getDescription());
+//                break;
+//            case DESIGNER:
+//                System.out.println(name + " is assigned to " + role.getDescription());
+//                break;
+//            case DEVELOPER:
+//                System.out.println(name + " is assigned to " + role.getDescription());
+//                break;
+//        }
+//    }
+
     public void assignTask() {
-        switch (role) {
-            case LEADER:
-                System.out.println(name + " is assigned to " + role.getDescription());
-                break;
-            case TESTER:
-                System.out.println(name + " is assigned to " + role.getDescription());
-                break;
-            case DESIGNER:
-                System.out.println(name + " is assigned to " + role.getDescription());
-                break;
-            case DEVELOPER:
-                System.out.println(name + " is assigned to " + role.getDescription());
-                break;
-        }
+        System.out.printf("%s is assigned to %s\n",
+                this.name, this.role.getDescription());
     }
 }
