@@ -40,11 +40,22 @@ public class Main {
         redCal.paint("빨강");
         blueCal.paint("파랑");
 
-        String name = input("이름 : >> ");
+//        String name = input("이름 : >> ");
         double rn = random();
 
         System.out.println();
 
         Count.m1();
+
+
+        System.out.println("===================");
+
+        System.out.println("국가 : " + Person.nation);
+
+        Person gap = new Person("갑돌리", 20);
+        System.out.println(gap.name);
+        System.out.println(gap.age);
+        System.out.println(gap.nation);
+
     }
 }
