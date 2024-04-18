@@ -10,13 +10,13 @@ public class WeatherAnalyzer {
 
     // 온도 경보 확인 메소드
     public static boolean checkTemperatureAlert(double temperature) {
-        return (temperature > WeatherConstants.MAX_TEMPERATURE_ALERT ||
-                temperature < WeatherConstants.MIN_TEMPERATURE_ALERT);
+        return (temperature > WeatherConstants.MAX_TEMPERATURE_ALERT.getNumericData() ||
+                temperature < WeatherConstants.MIN_TEMPERATURE_ALERT.getNumericData());
     }
 
     // 강수량 경보 확인 메소드
     public static boolean checkPrecipitationAlert(double precipitation) {
-        return precipitation > WeatherConstants.MIN_WIND_ALERT;
+        return precipitation > WeatherConstants.MIN_WIND_ALERT.getNumericData();
     }
 
 }
