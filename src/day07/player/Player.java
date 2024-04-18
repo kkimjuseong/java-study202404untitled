@@ -9,6 +9,11 @@ public class Player {
     int level;       // 렙
     int hp;
 
+    Player(String nickname){
+        this.nickname = nickname;
+        this.level = 1;
+        this.hp = 50;
+    }
 
     // 현재 캐릭터 정보를 출력
     public void showStatus(){

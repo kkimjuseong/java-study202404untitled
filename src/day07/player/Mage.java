@@ -8,9 +8,7 @@ public class Mage extends Player {
     int mp;   // 마나
 
     public Mage(String nickname) {
-        this.nickname = nickname;
-        this.level = 1;
-        this.hp = 50;
+        super(nickname);
         this.mp = 100;
     }
 
