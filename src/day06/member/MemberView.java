@@ -42,6 +42,12 @@ public class MemberView {
         String gender = si.input("- 성별: ");
         int age = Integer.parseInt(si.input("- 나이: "));
 
+        if(gender.equals("남성")){
+            gender = MemberConstants.MALE;
+        } else if (gender.equals("여성")) {
+            gender = MemberConstants.FEMALE;
+        }
+
         // 입력데이터를 기반으로 한 명의 회원 객체를 생성
         Member newMember = new Member(email, password, name, gender, age);
 
