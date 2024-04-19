@@ -63,5 +63,10 @@ public class Main {
         Car ttt = new Tucson();
         Tucson tts = (Tucson) ttt;
 
+
+        System.out.println("==========================");
+
+        driver.drive(new Tucson());
+
     }
 }
