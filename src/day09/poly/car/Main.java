@@ -6,7 +6,7 @@ public class Main {
 
         Car sonata1 = new Sonata();
         Car sonata2 = new Sonata();
-        Car sonata3 = new Sonata();
+        Sonata sonata3 = new Sonata();
 
 //        Sonata[] sArr = {sonata1, sonata2, sonata3, new Sonata()};
 //        for (Sonate sonate : sArr) {
@@ -31,6 +31,13 @@ public class Main {
         }
 
         Object[] sArr = {"abc", "def", 100, false};
+
+        System.out.println("===============================");
+
+        Driver driver = new Driver();
+        driver.drive(new Sonata());
+
+
 
     }
 }
