@@ -1,7 +1,5 @@
 package day09.poly.computer;
 
-import javax.management.monitor.Monitor;
-
 public class Desktop {
 
     // 다형성은 객체의 교환성을 높여주며
