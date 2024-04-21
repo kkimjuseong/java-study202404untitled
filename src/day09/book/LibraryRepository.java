@@ -1,9 +1,11 @@
 package day09.book;
 
+// 역할: 도서관리 앱에서 사용하는 데이터들을 관리하는 객체
+// 관리할 데이터: 우리 회원이 누구?  우리는 어떤책들을 갖고 있는가?
 public class LibraryRepository {
 
-    private static BookUser user;
-    private static BookList bookList;
+    private static BookUser user; // 회원은 한명
+    private static BookList bookList;  // 책은 여러개
 
     // 정적 초기화자 : static필드 초기값 설정
     static {
@@ -17,21 +19,18 @@ public class LibraryRepository {
         bookList.push(new CartoonBook("이세계로 전이했으니 치트를 살려 마법검사가 되기로 했다", "Shinkoshoto", "대원씨아이", 12));
     }
 
+    // 저장소에 user를 저장
     public void saveBookUser(BookUser bookUser) {
         user = bookUser;
     }
 
-
+    // 책 정보가 들어 있는 배열을 리턴
     public Book[] getAllBooksInfo() {
         return bookList.getbArr();
     }
 
-
-    public BookUser getBookUser() {
-        return user;
-    }
-
     public Book[] searchBookList(String keyword) {
+
         // 검색어에 걸린 책들을 모아두는 리스트
         BookList filteredList = new BookList();
 
@@ -43,7 +42,13 @@ public class LibraryRepository {
         return filteredList.getbArr();
     }
 
+    /**
+     * 주어진 책 번호에 맞는 책이 대여 가능한지에 대한 상태상수를 리턴
+     * @param bookNum - 주어진 책 번호
+     * @return - 대여 가능 상태를 반환
+     */
     public RentStatus rentBook(int bookNum) {
+
         // 1. 책번호에 해당하는 책 정보 가져오기
         Book wishBook = bookList.get(bookNum - 1);
         // 2. 이 책을 대여할 수 있는지 검증
@@ -71,5 +76,9 @@ public class LibraryRepository {
         }
         return RentStatus.RENT_FAIL;
     }
-}
 
+    public BookUser getBookUser() {
+
+        return user;
+    }
+}
