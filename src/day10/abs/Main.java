@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Dog mydog = new Dog();
+/*        Dog mydog = new Dog();
         Dog mydog2 = new Dog();
         Dog mydog3 = new Dog();
 
@@ -12,15 +12,15 @@ public class Main {
         Cat myCat2 = new Cat();
         Cat myCat3 = new Cat();
 
-        GoldFish goldFish = new GoldFish();
+        GoldFish goldFish = new GoldFish();*/
 
-        Pet[] petList = {mydog, mydog2, mydog3, myCat, myCat2, myCat3, goldFish};
+//        Pet[] petList = {mydog, mydog2, mydog3, myCat, myCat2, myCat3, goldFish};
 
-        for (Pet pet : petList) {
-            pet.eat();
-            pet.sleep();
-            pet.walk();
-        }
+//        for (Pet pet : petList) {
+//            pet.eat();
+//            pet.sleep();
+//            pet.walk();
+//        }
     }
 
 
