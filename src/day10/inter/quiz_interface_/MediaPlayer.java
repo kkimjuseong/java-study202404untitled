@@ -1,5 +1,7 @@
 package day10.inter.quiz_interface_;
 
+import java.util.Arrays;
+
 public class MediaPlayer{
 
     private MediaPlayable[] mediaList = new MediaPlayable[0];
@@ -7,6 +9,9 @@ public class MediaPlayer{
     public void addMedia(MediaPlayable media) {
         // 주어진 media 를 mediaList 배열에 추가
         MediaPlayable[] newMediaList = new MediaPlayable[mediaList.length + 1];
+
+        // newMediaList = Arrays.copyOf(mediaList, mediaList.length);
+        // 밑에 for문을 안돌려도 배열복사가 가능함
 
         for (int i = 0; i < mediaList.length; i++) {
             newMediaList[i] = mediaList[i];

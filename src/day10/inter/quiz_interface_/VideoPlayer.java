@@ -8,11 +8,11 @@ public class VideoPlayer implements MediaPlayable{
 
     @Override
     public void pause() {
-
+        System.out.println("비디오가 일시정지 됩니다.");
     }
 
     @Override
     public void stop() {
-
+        System.out.println("비디오를 멈춥니다.");
     }
 }
