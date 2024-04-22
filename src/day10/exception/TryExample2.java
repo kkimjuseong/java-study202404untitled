@@ -20,11 +20,14 @@ public class TryExample2 {
             System.out.println("result = " + result);
         } catch (InputMismatchException e) {
             System.out.println("정수를 입력 하라고요!!");
-        } catch (ArithmeticException e) {
-            System.out.println("0으로 나눌 수 없습니다.");
-            e.printStackTrace();        // 에러 로그를 띄워줌 - 개발시 매우 유용
         } catch (NumberFormatException e) {
+            System.out.println("0으로 나눌 수 없습니다.");
+        } catch (ArithmeticException e) {
             System.out.println("문자로 변환할 수 없는 숫자입니다.");
+            e.printStackTrace();        // 에러 로그를 띄워줌 - 개발시 매우 유용
+        } catch (Exception e){
+            // 전혀 예상하지 못하는 에러가 존재할 수 있기 때문에
+            System.out.println("알 수 없는 에러입니다.");
         }
 
         System.out.println("프로그램 정상 종료!");
