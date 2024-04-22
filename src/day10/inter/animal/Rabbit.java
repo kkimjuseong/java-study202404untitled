@@ -2,12 +2,12 @@ package day10.inter.animal;
 
 import day10.inter.Wild;
 
-public class Rabbit implements Pet, Wild {
+public class Rabbit extends Animal implements Pet, Wild {
 
     // 애완동물로 키울 수 있음
     @Override
     public void handle() {
-
+        this.age = 2;
     }
 
     // 예방접종

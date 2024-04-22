@@ -1,14 +1,15 @@
 package day10.inter.animal;
 
+import day10.inter.Aggressive;
 import day10.inter.Huntable;
 import day10.inter.Wild;
 
-public class BullDog implements Pet, Huntable, Wild {
+public class BullDog extends Animal implements Pet, Aggressive {
 
     // 애완동물로 키울 수 있음
     @Override
     public void handle() {
-
+        this.age = 10;
     }
 
     // 예방접종
