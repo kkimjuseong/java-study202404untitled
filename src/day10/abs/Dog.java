@@ -2,6 +2,10 @@ package day10.abs;
 
 public class Dog extends Pet{
 
+    public Dog(String name, int age, String kind) {
+        super(name, age, kind);
+    }
+
     public void eat() {
         System.out.println("강아지는 사료를 먹어요~");
 
