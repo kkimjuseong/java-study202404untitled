@@ -40,7 +40,17 @@ public class MemberView {
         String name = si.input("- 이름: ");
         String password = si.input("- 패스워드: ");
         String gender = si.input("- 성별: ");
-        int age = Integer.parseInt(si.input("- 나이: "));
+//        int age = Integer.parseInt(si.input("- 나이: "));
+
+        int age = 0;
+        while (true){
+            try {
+                age = Integer.parseInt(si.input("- 나이: "));
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("나이를 숫자로 입력하세요!");
+            }
+        }
 
         if(gender.equals("남성")){
             gender = MemberConstants.MALE;
