@@ -1,7 +1,5 @@
 package day10.inter.animal;
 
-import day10.inter.Wild;
-
 public class Rabbit extends Animal implements Pet, Wild {
 
     // 애완동물로 키울 수 있음

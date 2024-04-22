@@ -1,9 +1,5 @@
 package day10.inter.animal;
 
-import day10.inter.Aggressive;
-import day10.inter.Huntable;
-import day10.inter.Wild;
-
 public class Shark extends Animal implements Aggressive {
 
     // 사냥 기능

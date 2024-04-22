@@ -1,6 +1,4 @@
-package day10.inter;
-
-import day10.inter.animal.Pet;
+package day10.inter.animal;
 
 public interface Huntable {
 

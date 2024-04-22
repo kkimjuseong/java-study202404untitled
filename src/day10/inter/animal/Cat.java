@@ -1,7 +1,5 @@
 package day10.inter.animal;
 
-import day10.inter.Aggressive;
-
 public class Cat extends Animal implements Pet, Aggressive {
     @Override
     public void hunt(Pet pet) {

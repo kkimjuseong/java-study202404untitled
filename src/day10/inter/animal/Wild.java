@@ -1,4 +1,4 @@
-package day10.inter;
+package day10.inter.animal;
 
 public interface Wild {
 

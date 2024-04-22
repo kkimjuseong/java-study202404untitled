@@ -1,9 +1,6 @@
-package day10.inter;
+package day10.inter.animal;
 
-import day10.inter.animal.Animal;
-import day10.inter.animal.Pet;
-
-public class Duck extends Animal implements Pet, Wild{
+public class Duck extends Animal implements Pet, Wild {
 
     @Override
     public void handle() {
