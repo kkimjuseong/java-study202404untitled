@@ -58,7 +58,7 @@ public class ArtistView {
 
         // 결과 화면 출력
         if (!repository.isRegistered(artistName)) { // 신규 등록인가???
-            // 실제로 가수정보를 등록해야 하는데 - 어디에?? map에 저장해!
+            // 실제로 가수정보를 등록해야 하는데 - 어디에?? map 에 저장해!
             repository.addNewArtist(artistName, songName);
             System.out.printf("\n# %s님이 신규등록되었습니다.\n", artistName);
 
