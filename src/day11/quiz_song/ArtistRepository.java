@@ -29,7 +29,6 @@ public class ArtistRepository {
         Artist newArtist = new Artist(artistName);  // 신규 가수 객체 생성
         // 첫번째 노래 songList에 추가
         newArtist.addSong(songName);
-        // 가수명이 등록이 되어있으면 노래리스트에 노래추가
         artistMap.put(artistName, newArtist);
     }
 
