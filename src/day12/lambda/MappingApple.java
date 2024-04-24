@@ -25,7 +25,7 @@ public class MappingApple {
     }
 
     // X객체 리스트에서 Y객체 리스트를 반환
-    public static <X, Y> List<Y> map(List<X> xList, GenericFxunction<X, Y> f) {
+    public static <X, Y> List<Y> map(List<X> xList, GenericFunction<X, Y> f) {
 
         List<Y> mappedList = new ArrayList<>();
         for (X x : xList) {
