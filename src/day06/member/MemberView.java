@@ -82,9 +82,7 @@ public class MemberView {
         System.out.println("* 2. 개별회원 정보 조회하기");
         System.out.println("* 3. 전체회원 정보 조회하기");
         System.out.println("* 4. 회원 정보 수정하기");
-//        if (isMemberRegistered) {
-            System.out.println("* 5. 회원 정보 삭제하기");
-//        }
+        System.out.println("* 5. 회원 정보 삭제하기");
         System.out.println("* 6. 회원 정보 복구하기");
         System.out.println("* 7. 프로그램 종료");
         System.out.println("===================================");
@@ -240,5 +238,8 @@ public class MemberView {
 
     }
 
+    public void load() {
+        mr.loadFile();
+    }
 }
 

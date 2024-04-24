@@ -1,6 +1,10 @@
 package day06.member;
 
-import java.util.Arrays;
+import day12.io.FileExample;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 // 역학: 회원 배열을 관리하는 역할 - 회원 데이터 저장소
 public class MemberRepository {
@@ -16,13 +20,6 @@ public class MemberRepository {
 
     // 생성자
     MemberRepository() {
-//        this.members = new Member[3];
-//        members[0] = new Member("abc@def.com", "1234", "콩순이", "여성", 50);
-//        members[1] = new Member("ghi@def.com", "5432", "팥돌이", "남성", 40);
-//        members[2] = new Member("xyz@def.com", "7890", "팥죽이", "여성", 30);
-
-//        restoreList = new Member[0];
-//        ml = new MemberList();
 
         this.members = new MemberList();
         members.push(new Member("abc@def.com", "1234", "콩순이", "여성", 50));
@@ -43,15 +40,56 @@ public class MemberRepository {
      */
     void addNewMember(Member newMember) {
 
-        // 배열의 데이터를 추가하는 로직
-//        Member[] temp = new Member[members.length + 1];
-//        for (int i = 0; i < members.length; i++) {
-//            temp[i] = members[i];
-//        }
-//        temp[members.length] = newMember;
-//        members = temp;
-
         members.push(newMember);
+
+        // 회원정보 텍스트 파일에 저장하기
+        // 두번째 파라미터에 true 넣어주지 않으면 기존 데이터가 초기화되고 정보가 입력이 됨
+        // 그래서 true 를 넣어주면 새롭게 추가만 된다.
+        try (FileWriter fw = new FileWriter(FileExample.ROOT_PATH + "/hello/member.txt", true)) {
+
+            String newMemberInfo = String.format("%s,%s,%s,%d,%s\n",
+                    newMember.email, newMember.memberName, newMember.password, newMember.age, newMember.gender);
+
+            fw.write(newMemberInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    // 회원정보 세이브파일 불러오기
+    public void loadFile() {
+        String targetPath = FileExample.ROOT_PATH + "/hello/member.txt";
+
+        try (FileReader fr = new FileReader(targetPath)) {
+
+            // 보조 스트림 활용
+            // 텍스트를 라인 단위로 읽어드리는 보조스트림
+            BufferedReader br = new BufferedReader(fr);
+
+            while (true) {
+                String s = br.readLine();
+
+                if (s == null) break;
+
+                String[] split = s.split(",");
+
+                // 읽어들인 회원정보로 회원 객체 생성
+                Member member = new Member(
+                        split[0],
+                        split[2],
+                        split[1],
+                        split[3],
+                        Integer.parseInt(split[4])
+                );
+
+                this.members.push(member);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -66,12 +104,7 @@ public class MemberRepository {
      */
 
     boolean inDuplicateEmail(String targetEmail) {
-//        for (Member m : members) {
-//            if (targetEmail.equals(m.email)) {
-//                return true;
-//            }
-//        }
-//        return false;
+
         return members.findIndex(targetEmail) != -1;
     }
 
@@ -98,75 +131,22 @@ public class MemberRepository {
      * @return - 해당 이메일의 회원 객체를 반환하고, 이메일에 해당하는 회원이 없을 경우 null 반환
      */
     Member findMemberByEmail(String targetEmail) {
-//        for (Member m : members) {
-//            if (m.email.equals(targetEmail)) {
-//                return m;
-//            }
-//        }
-//        return null; // 해당 이메일의 회원이 없을 경우 null 반환
+
         return members.get(targetEmail);
     }
 
 
-//    public void deleteMemberByEmail(String targetEmail) {
-//        // 삭제할 회원의 인덱스를 찾습니다.
-//        int indexToRemove = -1;
-//        for (int i = 0; i < members.length; i++) {
-//            if (members[i].email.equals(targetEmail)) {
-//                indexToRemove = i;
-//                break;
-//            }
-//        }
-//
-//        // 삭제할 회원을 찾았으면 배열에서 제거합니다.
-//        if (indexToRemove != -1) {
-//            // 새 배열을 생성하여 기존 배열의 요소를 복사합니다.
-//            Member[] newMembers = new Member[members.length - 1];
-//            int newIndex = 0;
-//            for (int i = 0; i < members.length; i++) {
-//                if (i != indexToRemove) {
-//                    newMembers[newIndex++] = members[i];
-//                }
-//            }
-//            // members 배열을 새 배열로 대체합니다.
-//            members = newMembers;
-//        }
-//    }
-
-//    int findIndex(String email) {
-//        for (int i = 0; i < members.length; i++) {
-//            if (email.equals(members[i].email)) {
-//                return i;
-//            }
-//        }
-//        return -1;
-
-//    }
-
     // 배열에서 회원정보 삭제
     public void removeMember(String inputEmail) {
 
-//        int index = findIndex(inputEmail);
         int index = members.findIndex(inputEmail);
 
         if (index == -1) return;
 
-//        for (int i = index; i < members.length - 1; i++) {
-//            members[i] = members[i + 1];
-//        }
-//
-//        Member[] temp = new Member[members.length - 1];
-//        for (int i = 0; i < temp.length; i++) {
-//            temp[i] = members[i];
-//        }
-//        members = temp;
-
         // members배열에서 삭제 후 삭제된 member를 리턴받음
         Member removed = members.remove(index);
         restoreList.push(removed);
-//
-//        System.out.println(Arrays.toString(members.mArr));
-//        System.out.println(Arrays.toString(restoreList.mArr));
+
     }
 
     public Member findRestoreMemberByEmail(String inputEmail) {
