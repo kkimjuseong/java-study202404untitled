@@ -16,7 +16,7 @@ public class Mapping {
         // 요리 이름만 추출
         List<String> nameList = menuList
                 .stream()
-                .map(dish -> dish.getName())
+                .map(Dish::getName)
                 .collect(Collectors.toList());
 
         System.out.println(nameList);
@@ -30,7 +30,7 @@ public class Mapping {
 
         // [ ?, ?, ? ...]
         List<Integer> collected = words.stream()
-                .map(w -> w.length())
+                .map(String::length)
                 .collect(Collectors.toList());
 
         System.out.println(collected);
@@ -48,7 +48,7 @@ public class Mapping {
                const menuList = [
                     {
                         name: 'pork',
-                        isVegeterian: false,
+                        isvegeterian: false,
                         calories: 800,
                         type: 'MEAT'
                     },
@@ -71,10 +71,10 @@ public class Mapping {
 
         List<SimpleDish> simpleDishList = menuList
                 .stream()
-                .map(dish -> new SimpleDish(dish))
+                .map(SimpleDish::new)
                 .collect(Collectors.toList());
 
-        simpleDishList.forEach(sd -> System.out.println(sd));
+        simpleDishList.forEach(System.out::println);
 
         /*
             메뉴 목록에서 칼로리가 500칼로리보다 큰
@@ -87,7 +87,7 @@ public class Mapping {
 
         List<DishDetail> dishDetails = menuList.stream()
                 .filter(d -> d.getCalories() > 500)
-                .map(d -> new DishDetail(d))
+                .map(DishDetail::new)
                 .collect(Collectors.toList());
 
         System.out.println(dishDetails);
@@ -96,7 +96,7 @@ public class Mapping {
 
         // 메뉴 목록에 있는 요리들의 총 칼로리 수 구하기.
         int sum = menuList.stream()
-                .mapToInt(d -> d.getCalories())
+                .mapToInt(Dish::getCalories)
                 .sum();
 
         System.out.println(sum);
@@ -106,7 +106,7 @@ public class Mapping {
         // 육류 메뉴의 평균 칼로리
         double averageMeatCalories = menuList.stream()
                 .filter(d -> d.getType() == Dish.Type.MEAT)
-                .mapToInt(d -> d.getCalories())
+                .mapToInt(Dish::getCalories)
                 .average()
                 .getAsDouble();
 
