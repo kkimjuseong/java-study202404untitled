@@ -3,7 +3,6 @@ package day01;
 public class TypeCasting {
 
     public static void main(String[] args) {
-
         byte a = 100;  // 1byte
         int b = a;     // 4byte
 

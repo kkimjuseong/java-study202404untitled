@@ -34,6 +34,6 @@ public class Variable {
         } // end if
         System.out.println(n2);
 
-    } // end main
-} // end class
-// 이거야
+    }
+
+}
