@@ -55,5 +55,5 @@ public class MethodBasic {
 
         System.out.println("곱셈결과 = " + operateResultList[2]);
 
-    } // end main method
-}  // end class
+    }
+}
