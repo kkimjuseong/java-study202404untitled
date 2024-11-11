@@ -32,7 +32,6 @@ public class DataType {
 
         // double random = Math.random();
 
-
         int x = 200;
         System.out.println(x + a);
         System.out.println(b * x);
@@ -50,5 +49,3 @@ public class DataType {
         System.out.println("hello2 = " + hello2);
     }
 }
-
-// 이거야
