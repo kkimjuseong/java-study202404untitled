@@ -19,6 +19,7 @@ public class MethodBasic {
     static void multiply(int n1, int n2) { //void return 없음
         System.out.printf("%d x %d = %d\n", n1, n2, n1 * n2);
     }
+
     // n개의 정수를 전닫받아 그 총합을 반환하는 함수
     static int addAll(int... numbers) {
         int total = 0;
@@ -27,6 +28,7 @@ public class MethodBasic {
         }
         return total;
     }
+
     // 2개의 정수를 전달받아 사칙연산의 결과를 모두 리턴
     static int[] operate(int n1, int n2) {
         return new int[]{add(n1, n2), n1 - n2, n1 * n2, n1 / n2};
