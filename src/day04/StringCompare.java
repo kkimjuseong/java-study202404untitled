@@ -8,7 +8,6 @@ public class StringCompare {
 
         Scanner sc = new Scanner(System.in);
 
-
         String inputName = sc.nextLine();
         String myName = "홍길동";
 
@@ -20,12 +19,11 @@ public class StringCompare {
         System.out.println("myName = " + myName);
         System.out.println("inputName = " + inputName);
 
-        if(myName.equals(inputName)){
+        if (myName.equals(inputName)) {
             System.out.println("두 문자열이 같다");
         } else {
             System.out.println("두 문자열이 다르다.");
         }
-
 
     }
 }
