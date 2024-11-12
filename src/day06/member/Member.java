@@ -18,7 +18,7 @@ public class Member {
     // - 객체가 생성될 시점에 호출되는 함수로 객체의 초기화를 담당한다.
     // 시스템이 생성하는 데이터 : 회원번호, 회원가입일자
     // 사용자가 제공하는 데이터 : 이메일 , 패스워드, 이름, 성별, 나이
-    public Member(String email, String password, String memberName, String gender, int age){
+    public Member(String email, String password, String memberName, String gender, int age) {
         this.id = 1;
         this.regDate = LocalDate.now();  // 현재 시간을 읽어서 자동으로 넣어줌.
 
@@ -30,7 +30,7 @@ public class Member {
     }
 
     // toString : 객체의 정보를 출력할 수 있음.
-    public String toString(){
+    public String toString() {
         return String.format("# 이름: %s,# 이메일: %s,# 나이: %d세,# 성별: %s,# 가입일: %s"
                 , this.memberName, this.email, this.age, this.gender, this.regDate);
 

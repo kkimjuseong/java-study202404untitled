@@ -44,10 +44,9 @@ public class MemberController {
                     boolean flag = mv.exitProgram();
                     if (flag) return;
 
-
             } // end switch
-
             si.stopInput();
+
         } // end while
     }
 }
