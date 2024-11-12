@@ -8,7 +8,7 @@ public class FieldAndLocal {
     int aaa;
 
     // css = 매개 변수 (parameter) - 메서드 호출시 반드시 필요한 인자값.
-    void foo(int ccc){
+    void foo(int ccc) {
         int bbb = 20;
         // foo라는 함수에는 저장공간을 줋이기 위해 값을 넣어주지 않으면
         // 오류가 나게된다.0
